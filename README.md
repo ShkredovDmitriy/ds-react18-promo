@@ -1,1 +1,1 @@
-# https-github.com-ShkredovDmitriy-ds-react18-promo
+# ds-react18-promo
