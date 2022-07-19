@@ -14,7 +14,25 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "elements/*": [
+          "./elements/*"
+      ],
+      "components/*": [
+        "./components/*"
+      ],
+      "blocks/*": [
+        "./blocks/*"
+      ],
+      "assets/*": [
+        "./assets/*"
+      ],
+      "app/*": [
+        "./app/*"
+      ]
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "index.d.ts"]
 }
