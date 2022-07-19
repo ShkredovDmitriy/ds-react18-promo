@@ -1,4 +1,4 @@
-.content {
+.main {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -7,7 +7,7 @@
   background-color: #fff;
 }
 
-.content__title {
+.main__title {
   font-family: $font-main;
   font-size: 1.5rem;
   color: $color-blue;
