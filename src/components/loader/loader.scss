@@ -1,0 +1,53 @@
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: $color-white;
+  z-index: 9999;
+}
+
+.spiner {
+  width: 6.25rem;
+  height: 6.25rem;
+
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.spiner--big {
+  width: 6.25rem;
+  height: 6.25rem;
+  animation: loader-spin 5s infinite linear;
+}
+
+.spiner--small {
+  position: relative;
+  top: -2.5rem;
+  left: -1.125rem;
+  width: 5rem;
+  height: 5rem;
+  animation: loader-spin 5s infinite linear;
+  animation-direction: reverse;
+  animation-delay: -0.5s;
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0)
+  }
+  50% {
+    transform: rotate(180deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}

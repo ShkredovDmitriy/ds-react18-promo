@@ -1,0 +1,22 @@
+.modal--basic {
+  padding: 2rem 3.125rem;
+}
+
+.modal__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal__title {
+  font-size: 1.375rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.modal__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}

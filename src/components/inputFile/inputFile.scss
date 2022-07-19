@@ -1,0 +1,53 @@
+.input-file__label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 12rem;
+  border: 1px dashed lighten($color-blue, 30%);
+  border-radius: 0.3125rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: $color-blue;
+  transition: border-color 0.3s;
+
+  &.filled {
+    border: 1px solid $color-blue;
+  }
+
+  &.draggable {
+    border: 1px dashed $color-green;
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+.input-file__button {
+  margin-top: 0.25rem;
+  padding: 0.125rem 0.625rem;
+  background-color: $color-blue;
+  font-size: 0.875rem;
+  color: $color-white;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+}
+
+.input-file__preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
