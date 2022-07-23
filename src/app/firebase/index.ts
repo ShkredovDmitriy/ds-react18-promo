@@ -2,15 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
 
-// TODO: Replace the following with your app's Firebase project configuration
-
 const firebaseConfig = {
-  apiKey: "AIzaSyABEsbUYF8Arigxf5QfwX4Hq2NPGre71uY",
-  authDomain: "ds-react-promo.firebaseapp.com",
-  projectId: "ds-react-promo",
-  storageBucket: "ds-react-promo.appspot.com",
-  messagingSenderId: "493774537891",
-  appId: "1:493774537891:web:ef6f2dbce842f177a6ab16"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.EACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGE_SENDER_ID,
+  appId: process.env.REACT_APP_ID
 }
 
 const app = initializeApp(firebaseConfig);
