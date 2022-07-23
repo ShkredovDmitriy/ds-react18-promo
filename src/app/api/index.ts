@@ -1,4 +1,4 @@
-import { auth, db } from 'app/firebase';
+import { auth, db } from 'app/fbase';
 import { action, useDsp, useSlc, RootState } from 'app/store';
 import axios from 'axios';
 import {
