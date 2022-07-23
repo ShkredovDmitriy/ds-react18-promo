@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { store } from './app/store';
+import { store, RootState } from './app/store';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import AuthProvider from 'app/authProvider';
+import AuthProvider from 'app/auth';
 import ModalProvider from 'components/modal';
 import Header from 'blocks/header/header';
 import Main from 'blocks/main/main';
 import About from 'blocks/about/about';
 import Winners from 'blocks/winners/winners';
+import Faq from 'blocks/faq/faq';
 import Profile from './blocks/profile/profile';
 import Footer from './blocks/footer/footer';
-import Loader from 'components/loader';
-import type { RootState } from 'app/store';
+import { Loader } from 'components/loader';
 import { useSlc } from 'app/store';
 import './styles/scss/main.scss';
 
@@ -30,6 +30,7 @@ root.render(
           <Route path="/" element={ <Main/> } />
           <Route path="/about" element={ <About /> } />
           <Route path="/winners" element={ <Winners /> } />
+          <Route path="/faq" element={ <Faq /> } />
           <Route path="/profile" element={ <RequireAuth /> }/>
           <Route path="/*" element={ <Redirect /> } />
         </Routes>
