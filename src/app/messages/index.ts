@@ -9,6 +9,7 @@ const messages = {
   requiredPassword: "Enter your password",
 
   toShort2: "Minimum 2 characters",
+  enter16digits: "Check ID has 16 digits",
   toLong50: "Maximum 50 characters",
   useRussLetters: "Use letters aA - zZ",
   emailInvalid: "Use format user@mail.com",
@@ -18,8 +19,17 @@ const messages = {
     exist: "Email exists",
     required: "Enter your email",
   },
+  date: {
+    format: "Use format 25.06.2022"
+  },
+  time: {
+    format: "Use format 17:25"
+  },
   user: {
     wrong: "Incorrect login or password"
+  },
+  file: {
+    more10mb: "Your files have more then 10MB"
   }
 }
 

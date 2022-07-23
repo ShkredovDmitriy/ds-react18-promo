@@ -1,4 +1,4 @@
-import { auth } from 'app/firebase';
+import { auth, db } from 'app/firebase';
 import { action, useDsp, useSlc, RootState } from 'app/store';
 import axios from 'axios';
 import {
@@ -7,6 +7,7 @@ import {
   signOut,
   onAuthStateChanged
 } from 'firebase/auth';
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 const apiRegis = (params: any, success: any, unsuccess: any) => {
   createUserWithEmailAndPassword(auth, params.email, params.password)
@@ -38,6 +39,24 @@ const apiLogout = (success: any) => {
   })
 }
 
+const apiMamual = (params: any, apiSuccess: any, apiUnsuccess: any) => {
+  addDoc(collection(db, "checks"), {
+    code: params.fn,
+    price: params.price,
+    status: 'moderate',
+    date: params.date,
+    time: params.time,
+  })
+  .then((docs) => {
+    console.log('API MANUAL SUCCESS ', docs);
+    apiSuccess();
+  })
+  .catch((error)=> {
+    console.log('API MANUAL UNSUCCESS ', error);
+    apiUnsuccess();
+  })
+}
+
 const apiAuthCheck = (success: any, unsuccess: any) => {
   onAuthStateChanged(auth, function(user) {
     if (user) success(user)
@@ -45,36 +64,52 @@ const apiAuthCheck = (success: any, unsuccess: any) => {
   });
 }
 
-const useApiChecks = () => {
-  const dispatch = useDsp();
-  const checks = useSlc((state: RootState) => state.checks);
-  checks.length < 1 && axios({
-    method: 'get',
-    url: 'https://gorest.co.in/public/v2/todos'
-  })
-    .then((response)=> {
-      console.log('API CHECKS SUCCESS ', response)
-      dispatch(action.checksSet(response.data))
-    }).catch((error)=> {
-      console.log('API CHECKS UNSUCCESS ', error)
-      dispatch(action.checksSet([]))
+const apiChecks = (apiSuccess: any, apiUnsuccess: any) => {
+  getDocs(collection(db, "checks"))
+    .then((docs) => {
+      console.log('API CHECKS SUCCESS ', docs);
+      apiSuccess(docs);
+    })
+    .catch((error)=> {
+      console.log('API CHECKS UNSUCCESS ', error);
+     apiUnsuccess()
     })
 }
 
-const useApiWinners = () => {
-  const dispatch = useDsp();
-  const winners = useSlc((state: RootState) => state.winners);
-  winners.length < 1 && axios({
-    method: 'get',
-    url: 'https://jsonplaceholder.typicode.com/users'
-  })
-    .then((response)=> {
-      console.log('API WINNERS SUCCESS ', response)
-      dispatch(action.winnersSet(response.data))
-    }).catch((error)=> {
-      console.log('API WINNERS UNSUCCESS ', error)
-      dispatch(action.winnersSet([]))
+const apiFaq = (apiSuccess: any, apiUnsuccess: any) => {
+  getDocs(collection(db, "faq"))
+    .then((docs) => {
+      console.log('API FAQ SUCCESS ', docs);
+      apiSuccess(docs);
+    })
+    .catch((error)=> {
+      console.log('API FAQ UNSUCCESS ', error);
+     apiUnsuccess()
     })
 }
 
-export { apiRegis, apiLogin, apiLogout, apiAuthCheck, useApiChecks, useApiWinners }
+const apiPeriods = (apiSuccess: any, apiUnsuccess: any) => {
+  getDocs(collection(db, "period"))
+    .then((docs) => {
+      console.log('API PERIODS SUCCESS ', docs);
+      apiSuccess(docs);
+    })
+    .catch((error)=> {
+      console.log('API PERIODS UNSUCCESS ', error);
+     apiUnsuccess()
+    })
+}
+
+const apiWinners = (apiSuccess: any, apiUnsuccess: any) => {
+  getDocs(collection(db, "winners"))
+  .then((docs) => {
+    console.log('API PERIODS SUCCESS ', docs);
+    apiSuccess(docs);
+  })
+  .catch((error)=> {
+    console.log('API PERIODS UNSUCCESS ', error);
+   apiUnsuccess()
+  })
+}
+
+export { apiRegis, apiLogin, apiLogout, apiMamual, apiAuthCheck, apiChecks, apiFaq, apiWinners, apiPeriods }

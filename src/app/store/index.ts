@@ -1,11 +1,21 @@
 import { configureStore, createAction, createReducer } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+// USER
 const userSet = createAction<any>('userSet');
-const checksSet = createAction<any>('checksSet');
-const winnersSet = createAction<any>('winnersSet');
 
+const user = createReducer({
+  isAuth: false,
+  name: '',
+  lastname: '',
+  email: '',
+  phone: '',
+  token: ''
+}, (builder) => {
+  builder.addCase(userSet, (state, action) => action.payload);
+})
+
+// MODALS
 const mLoginShow = createAction('mLoginShow');
 const mLoginHide = createAction('mLoginHide');
 const mRegisShow = createAction('mRegisShow');
@@ -20,28 +30,11 @@ const mManualShow = createAction('mManualShow');
 const mManualHide = createAction('mManualHide');
 const mUserShow = createAction('mUserShow');
 const mUserHide = createAction('mUserHide');
-const loaderShow = createAction('loaderShow');
-const loaderHide = createAction('loaderHide');
-
-const user = createReducer({
-  isAuth: false,
-  name: '',
-  lastname: '',
-  email: '',
-  phone: '',
-  token: ''
-}, (builder) => {
-  builder.addCase(userSet, (state, action) => action.payload);
-})
-
-const checks = createReducer([], (builder) => {
-  builder.addCase(checksSet, (state, action) => action.payload);
-})
-
-const winners = createReducer([], (builder) => {
-  builder.addCase(winnersSet, (state, action) => action.payload);
-})
-
+const mScanerShow = createAction('mScanerShow');
+const mScanerHide = createAction('mScanerHide');
+const mInfoShow = createAction('mInfoShow');
+const mInfoHide = createAction('mInfoHide');
+const mInfoSetData = createAction<any>('mInfoSetData');
 
 const mUser = createReducer(false, (builder) => {
   builder.addCase(mUserShow, (state, action) => true);
@@ -78,16 +71,53 @@ const mManual = createReducer(false, (builder) => {
   builder.addCase(mManualHide, (state, action) => false);
 })
 
+const mScaner = createReducer(false, (builder) => {
+  builder.addCase(mScanerShow, (state, action) => true);
+  builder.addCase(mScanerHide, (state, action) => false);
+})
+
+const mInfo = createReducer(false, (builder) => {
+  builder.addCase(mInfoShow, (state, action) => true);
+  builder.addCase(mInfoHide, (state, action) => false);
+})
+
+const mInfoData = createReducer({title: "", message: ""}, (builder) => {
+  builder.addCase(mInfoSetData, (state, action) => action.payload);
+})
+
+
+// LOADERS
+const loaderShow = createAction('loaderShow');
+const loaderHide = createAction('loaderHide');
+
 const loader = createReducer(true, (builder) => {
   builder.addCase(loaderShow, (state, action) => true);
   builder.addCase(loaderHide, (state, action) => false);
 })
 
 
+// TABELS
+const winnersSet = createAction<any>('winnersSet');
+const faqSet = createAction<any>('faqSet');
+const checksSet = createAction<any>('checksSet');
+
+const winners = createReducer([], (builder) => {
+  builder.addCase(winnersSet, (state, action) => action.payload);
+})
+
+const faq = createReducer([], (builder) => {
+  builder.addCase(faqSet, (state, action) => action.payload);
+})
+
+const checks = createReducer([], (builder) => {
+  builder.addCase(checksSet, (state, action) => action.payload);
+})
+
 const action = {
   userSet,
   checksSet,
   winnersSet,
+  faqSet,
   mLoginShow,
   mLoginHide,
   mRegisShow,
@@ -103,6 +133,11 @@ const action = {
   mUserShow,
   mUserHide,
   loaderShow,
+  mScanerShow,
+  mScanerHide,
+  mInfoShow,
+  mInfoHide,
+  mInfoSetData,
   loaderHide,
 }
 
@@ -111,6 +146,7 @@ const store = configureStore({
     user,
     checks,
     winners,
+    faq,
     mLogin,
     mRegis,
     mRecov,
@@ -118,6 +154,9 @@ const store = configureStore({
     mUpload,
     mManual,
     mUser,
+    mScaner,
+    mInfo,
+    mInfoData,
     loader,
   },
   devTools: true
