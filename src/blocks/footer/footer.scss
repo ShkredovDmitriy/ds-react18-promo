@@ -7,3 +7,9 @@
   box-shadow: 0 -0.25rem 0.4375rem rgba(0, 0, 0, 0.25);
   background-color: $color-blue;
 }
+
+@include media-tablet {
+  .footer {
+    position: static;
+  }
+}

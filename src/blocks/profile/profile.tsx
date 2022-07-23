@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Avatar from 'components/avatar';
 import PersonalData from 'components/personalData';
 import Button from 'react-bootstrap/Button';
-import Checks from './checks';
+import { ChecksWrapper } from 'app/services';
 import { apiLogout }  from 'app/api';
 import { action, useDsp } from 'app/store';
 
@@ -14,7 +14,7 @@ const Profile: FC = () => {
         <div className="profile__user">
           <Avatar/>
           <PersonalData/>
-          <div className="w-100 d-grid">
+          <div className="profile-data__action-button w-100 d-grid">
             <Button
               variant="primary"
               type="button"
@@ -23,7 +23,7 @@ const Profile: FC = () => {
                 Add check
               </Button>
           </div>
-          <div className="w-100 d-grid mt-auto">
+          <div className="profile-data__exit-button w-100 d-grid mt-auto">
             <Button
               variant="primary"
               type="button"
@@ -33,7 +33,7 @@ const Profile: FC = () => {
             </Button>
           </div>
         </div>
-        <Checks />
+        <ChecksWrapper/>
       </div>
     </div>
   )

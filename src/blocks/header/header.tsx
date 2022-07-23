@@ -12,13 +12,16 @@ const Header: FC = () => {
           <nav className='nav'>
             <ul className='nav__list'>
               <li className='nav__item'>
-                <Link className='nav__link' to="/">Main</Link>
+                <Link className='nav__link' to="./">Main</Link>
               </li>
               <li className='nav__item'>
-                <Link className='button nav__link' to="/about">About</Link>
+                <Link className='button nav__link' to="./about">About</Link>
               </li>
               <li className='nav__item'>
-                <Link className='button nav__link' to="/winners">Winners</Link>
+                <Link className='button nav__link' to="./winners">Winners</Link>
+              </li>
+              <li className='nav__item'>
+                <Link className='button nav__link' to="./faq">Faq</Link>
               </li>
               { !user.isAuth &&
                 <li className='nav__item'>
@@ -32,7 +35,7 @@ const Header: FC = () => {
               }
               { user.isAuth &&
                 <li className='nav__item'>
-                  <Link className='nav__link' to="/profile">Profile</Link>
+                  <Link className='nav__link' to="./profile">Profile</Link>
                 </li>
               }
             </ul>
