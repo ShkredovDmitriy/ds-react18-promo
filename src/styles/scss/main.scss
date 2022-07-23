@@ -1,10 +1,10 @@
 @import './vars';
+@import './mixins';
 @import './basics';
 
 // LIBS
 @import "~bootstrap/scss/bootstrap";
 
-// CUSTOM
-@import '../../elements/elements.scss';
+// COMPONENTS
 @import '../../components/components.scss';
 @import '../../blocks/blocks.scss';
