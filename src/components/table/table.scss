@@ -1,0 +1,32 @@
+.table--checks {
+  min-width: 53.125rem;
+}
+
+.table--winners {
+  min-width: 53.125rem;
+}
+
+@include media-mobile {
+  .table--checks, .table--winners {
+    display: block;
+    min-width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tbody, tr {
+      display: block;
+    }
+
+    td {
+      display: flex;
+
+      &:before {
+        content: attr(data-label);
+        display: block;
+        width: 7.25rem;
+      }
+    }
+  }
+}

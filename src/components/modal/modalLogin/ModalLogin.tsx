@@ -2,11 +2,9 @@ import React, { FC } from 'react';
 import ModalBasic from '../modal';
 import type { RootState } from 'app/store';
 import { action, useDsp, useSlc } from 'app/store';
-import { FormLogin } from 'components/form';
+import { WrapperLogin } from 'app/services';
 
-type props = {}
-
-const ModalLogin: FC<props> = (props) => {
+const ModalLogin: FC = () => {
   const dispatch = useDsp();
   const switchToRegisModal = () => {
     dispatch(action.mLoginHide());
@@ -20,26 +18,22 @@ const ModalLogin: FC<props> = (props) => {
     <ModalBasic
       show={useSlc((state: RootState) => state.mLogin)}
       onHide={() => dispatch(action.mLoginHide())}
+      title="login"
     >
       <>
-        <div className="modal__header">
-          <div className="modal__title">Login</div>
-        </div>
-        <div className="modal__body">
-          <FormLogin/>
-          <button
-            className="button button--link"
-            onClick={switchToRegisModal}
-          >
-            Create new account
-          </button>
-          <button
-            className="button button--link"
-            onClick={switchToRecovModal}
-          >
-            Forgot password
-          </button>
-        </div>
+        <WrapperLogin/>
+        <button
+          className="button button--link"
+          onClick={switchToRegisModal}
+        >
+          Create new account
+        </button>
+        <button
+          className="button button--link"
+          onClick={switchToRecovModal}
+        >
+          Forgot password
+        </button>
       </>
     </ModalBasic>
   )

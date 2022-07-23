@@ -6,6 +6,8 @@ import ModalVariant from './modalVariant/modalVariant';
 import ModalUpload from './modalUpload/ModalUpload';
 import ModalManual from './modalManual/modalManual';
 import ModalUser from './modalUser/modalUser';
+import ModalInfo from './modalInfo/modalInfo';
+import ModalScaner from './modalScaner/modalScaner';
 
 const ModalProvider = () => {
   return (
@@ -17,6 +19,8 @@ const ModalProvider = () => {
       <ModalUpload/>
       <ModalManual/>
       <ModalUser/>
+      <ModalInfo/>
+      <ModalScaner/>
     </>
   )
 }

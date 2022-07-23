@@ -1,39 +1,33 @@
-import React, { FC } from 'react';
-import { formRecovInitial, formRecovSchema } from 'app/schemas';
-import { Formik, Form, BSform } from 'components/form';
-import { InputText } from 'elements/input';
+import { Form, BSform } from 'components/form';
+import { InputText } from 'components/input';
 import Button from 'react-bootstrap/Button';
 
-const FormRecov: FC = () => {
+const FormRecov = () => {
   return (
-    <Formik
-      initialValues={formRecovInitial}
-      validationSchema={formRecovSchema}
-      onSubmit={(params, {setErrors}) => console.log(params)}
-    >
-      <Form className='form'>
-        <div className="mb-3">
-          <BSform.Text className="text-muted">We'll send you new password.</BSform.Text>
-        </div>
+    <Form className='form mt-3'>
 
-        <div className="mb-3">
-          <InputText
-            label='Email'
-            name='email'
-            placeholder='Enter email'
-            role='formRecovEmail'
-          />
-        </div>
+      <div className="mb-3">
+        <BSform.Text className="text-muted">We'll send you new password.</BSform.Text>
+      </div>
 
-        <Button
-          variant="primary mt-3 w-100"
-          type="submit"
-          role='formRecovButtonSubmit'
-        >
-          Send
-        </Button>
-      </Form>
-    </Formik>
+      <div className="mb-3">
+        <InputText
+          label='Email'
+          name='email'
+          placeholder='Enter email'
+          role='formRecovEmail'
+        />
+      </div>
+
+      <Button
+        variant="primary mt-3 w-100"
+        type="submit"
+        role='formRecovButtonSubmit'
+      >
+        Send
+      </Button>
+
+    </Form>
   )
 }
 

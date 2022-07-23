@@ -11,10 +11,14 @@
   z-index: 9999;
 }
 
+.loader--mini{
+  position: absolute;
+  z-index: 5;
+}
+
 .spiner {
   width: 6.25rem;
   height: 6.25rem;
-
 
   svg {
     display: block;
@@ -26,6 +30,12 @@
 .spiner--big {
   width: 6.25rem;
   height: 6.25rem;
+  animation: loader-spin 5s infinite linear;
+}
+
+.spiner--mini {
+  width: 3.75rem;
+  height: 3.75rem;
   animation: loader-spin 5s infinite linear;
 }
 

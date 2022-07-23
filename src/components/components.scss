@@ -1,7 +1,10 @@
+@import './loader/loader.scss';
+@import './input/input.scss';
+@import './button/button.scss';
 @import './modal/modal.scss';
 @import './form/form.scss';
+@import './table/table.scss';
 @import './avatar/avatar.scss';
 @import './personalData/personalData.scss';
-@import './scrollbars/scrollbars.scss';
-@import './inputFile/inputFile.scss';
-@import './loader/loader.scss';
+@import './scrollbar/scrollbar.scss';
+@import './qrscaner/qrscaner.scss';

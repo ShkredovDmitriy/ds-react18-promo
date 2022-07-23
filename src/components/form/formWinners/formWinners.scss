@@ -1,0 +1,30 @@
+.form--winners {
+
+  &>div {
+    width: 17.1875rem;
+
+    &:last-child {
+      width: auto;
+    }
+  }
+}
+
+@include media-mobile {
+
+  .form--winners {
+    flex-direction: column;
+
+    &>div {
+      width: 100%;
+
+      &:last-child {
+        width: 100%;
+      }
+    }
+
+    .btn-primary {
+      width: 100%;
+    }
+  }
+
+}

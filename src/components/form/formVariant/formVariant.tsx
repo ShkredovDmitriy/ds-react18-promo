@@ -3,13 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { action, useDsp } from 'app/store';
 
-type props = {}
-
-const FormVariant: FC<props> = (props) => {
+const FormVariant: FC = () => {
   const dispatch = useDsp();
   const ModalManualShow = () => {
     dispatch(action.mVariantHide())
     dispatch(action.mManualShow())
+  }
+  const ModalScanerShow = () => {
+    dispatch(action.mVariantHide())
+    dispatch(action.mScanerShow())
   }
   const ModalUploadShow = () => {
     dispatch(action.mVariantHide())
@@ -28,7 +30,13 @@ const FormVariant: FC<props> = (props) => {
       </Form.Group>
 
       <Form.Group className="mb-4" controlId="formRegisPassword">
-        <Button variant="primary w-100" type="button">Scan QR code</Button>
+        <Button
+          variant="primary w-100"
+          type="button"
+          onClick={() => ModalScanerShow()}
+        >
+          Scan QR code
+        </Button>
       </Form.Group>
 
       <Form.Group className="" controlId="formRegisCheckbox">

@@ -2,25 +2,17 @@ import React, { FC } from 'react';
 import ModalBasic from '../modal';
 import type { RootState } from 'app/store';
 import { action, useDsp, useSlc } from 'app/store';
-import { FormUpload } from 'components/form';
+import { WrapperUpload } from 'app/services';
 
-type props = {}
-
-const ModalUpload: FC<props> = (props) => {
+const ModalUpload: FC = () => {
   const dispatch = useDsp()
   return (
     <ModalBasic
       show={useSlc((state: RootState) => state.mUpload)}
       onHide={() => dispatch(action.mUploadHide())}
+      title="Upload Photo"
     >
-      <>
-        <div className="modal__header">
-          <div className="modal__title">Upload Photo</div>
-        </div>
-        <div className="modal__body">
-          <FormUpload/>
-        </div>
-      </>
+      <WrapperUpload/>
     </ModalBasic>
   )
 }

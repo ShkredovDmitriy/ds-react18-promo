@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
-import { action, useDsp, useSlc } from 'app/store';
+import { action, useDsp, useSlc, RootState} from 'app/store';
 
 const PersonalData: FC = () => {
-  const dispatch = useDsp()
+  const dispatch = useDsp();
+  const user = useSlc((state: RootState) => state.user);
   return (
     <div className="profile-data mb-3">
-      <div className="profile-data__row profile-data__row--name">John Smith</div>
-      <div className="profile-data__row profile-data__row--phone">+7 (999) 745 - 84 - 14</div>
-      <div className="profile-data__row profile-data__row--email">someemail@someserver.com</div>
+      <div className="profile-data__row profile-data__row--name">{user.name || 'no name set'}</div>
+      <div className="profile-data__row profile-data__row--phone">{user.phone || 'no phone set'}</div>
+      <div className="profile-data__row profile-data__row--email">{user.email}</div>
       <button
         className="button profile-data__button-redact"
         onClick={() => dispatch(action.mUserShow())}

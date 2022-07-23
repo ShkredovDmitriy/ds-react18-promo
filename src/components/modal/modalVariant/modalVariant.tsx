@@ -4,23 +4,15 @@ import type { RootState } from 'app/store';
 import { action, useDsp, useSlc } from 'app/store';
 import { FormVariant } from 'components/form';
 
-type props = {}
-
-const ModalLogin: FC<props> = (props) => {
+const ModalLogin: FC = () => {
   const dispatch = useDsp()
   return (
     <ModalBasic
       show={useSlc((state: RootState) => state.mVariant)}
       onHide={() => dispatch(action.mVariantHide())}
+      title="Upload variant"
     >
-      <>
-        <div className="modal__header">
-          <div className="modal__title">Upload variant</div>
-        </div>
-        <div className="modal__body">
-          <FormVariant/>
-        </div>
-      </>
+      <FormVariant/>
     </ModalBasic>
   )
 }

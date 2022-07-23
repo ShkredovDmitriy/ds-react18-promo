@@ -2,25 +2,17 @@ import React, { FC } from 'react'
 import ModalBasic from '../modal';
 import type { RootState } from 'app/store';
 import { action, useDsp, useSlc } from 'app/store';
-import { FormRegis } from 'components/form';
+import { WrapperRegis } from 'app/services';
 
-type props = {}
-
-const ModalRegis: FC<props> = (props) => {
+const ModalRegis: FC = () => {
   const dispatch = useDsp()
   return (
     <ModalBasic
       show={useSlc((state: RootState) => state.mRegis)}
       onHide={() => dispatch(action.mRegisHide())}
+      title="Registration"
     >
-      <>
-        <div className="modal__header">
-          <div className="modal__title">Registration</div>
-        </div>
-        <div className="modal__body">
-          <FormRegis/>
-        </div>
-      </>
+      <WrapperRegis />
     </ModalBasic>
   )
 }
