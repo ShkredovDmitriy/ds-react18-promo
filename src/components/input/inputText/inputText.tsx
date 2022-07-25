@@ -3,6 +3,7 @@ import { IMaskInput, maskSelector } from 'app/utils/imask';
 import { Field, ErrorMessage, BSform } from 'components/form';
 
 type props = {
+  as?: string,
   label?: string,
   name: string,
   placeholder: string,
@@ -22,6 +23,7 @@ const InputText: FC<props> = (props) => {
             {
               !props.mask &&
               <BSform.Control
+                as={props.as}
                 name={props.name}
                 type="text"
                 placeholder={props.placeholder}

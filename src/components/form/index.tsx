@@ -9,6 +9,7 @@ import FormUpload from './formUpload/formUpload';
 import FormManual from './formManual/formManual';
 import FormUser from './formUser/formUser';
 import { FormWinners } from './formWinners/formWinners';
+import { FormFeedback } from './formFeedback/formFeedback';
 
 export { Formik, Form, Field, ErrorMessage, BSform }
-export { FormLogin, FormRegis, FormRecov, FormVariant, FormUpload, FormManual, FormUser, FormWinners }
+export { FormLogin, FormRegis, FormRecov, FormVariant, FormUpload, FormManual, FormUser, FormWinners, FormFeedback }
