@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "https://shkredovdmitriy.github.io/ds-react18-promo/static/css/main.df142b81.css",
-    "main.js": "https://shkredovdmitriy.github.io/ds-react18-promo/static/js/main.5d3be31f.js",
+    "main.js": "https://shkredovdmitriy.github.io/ds-react18-promo/static/js/main.57b9c672.js",
     "static/js/787.7ccfcc18.chunk.js": "https://shkredovdmitriy.github.io/ds-react18-promo/static/js/787.7ccfcc18.chunk.js",
     "static/media/bg-main-desktop.jpg": "https://shkredovdmitriy.github.io/ds-react18-promo/static/media/bg-main-desktop.e61b097203766fac69c6.jpg",
     "index.html": "https://shkredovdmitriy.github.io/ds-react18-promo/index.html",
     "main.df142b81.css.map": "https://shkredovdmitriy.github.io/ds-react18-promo/static/css/main.df142b81.css.map",
-    "main.5d3be31f.js.map": "https://shkredovdmitriy.github.io/ds-react18-promo/static/js/main.5d3be31f.js.map",
+    "main.57b9c672.js.map": "https://shkredovdmitriy.github.io/ds-react18-promo/static/js/main.57b9c672.js.map",
     "787.7ccfcc18.chunk.js.map": "https://shkredovdmitriy.github.io/ds-react18-promo/static/js/787.7ccfcc18.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.df142b81.css",
-    "static/js/main.5d3be31f.js"
+    "static/js/main.57b9c672.js"
   ]
 }
