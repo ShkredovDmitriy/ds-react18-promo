@@ -32,6 +32,8 @@ const mUserShow = createAction('mUserShow');
 const mUserHide = createAction('mUserHide');
 const mScanerShow = createAction('mScanerShow');
 const mScanerHide = createAction('mScanerHide');
+const mFeedbackShow = createAction('mFeedbackShow');
+const mFeedbackHide = createAction('mFeedbackHide');
 const mInfoShow = createAction('mInfoShow');
 const mInfoHide = createAction('mInfoHide');
 const mInfoSetData = createAction<any>('mInfoSetData');
@@ -74,6 +76,11 @@ const mManual = createReducer(false, (builder) => {
 const mScaner = createReducer(false, (builder) => {
   builder.addCase(mScanerShow, (state, action) => true);
   builder.addCase(mScanerHide, (state, action) => false);
+})
+
+const mFeedback = createReducer(false, (builder) => {
+  builder.addCase(mFeedbackShow, (state, action) => true);
+  builder.addCase(mFeedbackHide, (state, action) => false);
 })
 
 const mInfo = createReducer(false, (builder) => {
@@ -135,6 +142,8 @@ const action = {
   loaderShow,
   mScanerShow,
   mScanerHide,
+  mFeedbackShow,
+  mFeedbackHide,
   mInfoShow,
   mInfoHide,
   mInfoSetData,
@@ -155,6 +164,7 @@ const store = configureStore({
     mManual,
     mUser,
     mScaner,
+    mFeedback,
     mInfo,
     mInfoData,
     loader,

@@ -1,4 +1,3 @@
-import React from 'react'
 import ModalLogin from './modalLogin/ModalLogin';
 import ModalRegis from './modalRegis/ModalRegis';
 import ModalRecov from './modalRecov/modalRecov';
@@ -8,21 +7,18 @@ import ModalManual from './modalManual/modalManual';
 import ModalUser from './modalUser/modalUser';
 import ModalInfo from './modalInfo/modalInfo';
 import ModalScaner from './modalScaner/modalScaner';
+import ModalFeedback from './modalFeedback/modalFeedback';
 
-const ModalProvider = () => {
-  return (
-    <>
-      <ModalLogin/>
-      <ModalRegis/>
-      <ModalRecov/>
-      <ModalVariant/>
-      <ModalUpload/>
-      <ModalManual/>
-      <ModalUser/>
-      <ModalInfo/>
-      <ModalScaner/>
-    </>
-  )
-}
-
-export default ModalProvider;
+export const ModalProvider = () =>
+  <>
+    <ModalLogin/>
+    <ModalRegis/>
+    <ModalRecov/>
+    <ModalVariant/>
+    <ModalUpload/>
+    <ModalManual/>
+    <ModalUser/>
+    <ModalInfo/>
+    <ModalScaner/>
+    <ModalFeedback/>
+  </>

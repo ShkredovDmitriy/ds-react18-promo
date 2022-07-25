@@ -3,7 +3,7 @@ import { Formik, FormLogin } from 'components/form';
 import { apiLogin } from 'app/api';
 import { schemas, values } from 'app/utils/schemas';
 
-const WrapperLogin = () => {
+export const WrapperLogin = () => {
 
   const dispatch = useDsp()
 
@@ -30,5 +30,3 @@ const WrapperLogin = () => {
     </Formik>
   )
 }
-
-export default WrapperLogin;

@@ -23,6 +23,14 @@ const Header: FC = () => {
               <li className='nav__item'>
                 <Link className='button nav__link' to="./faq">Faq</Link>
               </li>
+              <li className='nav__item'>
+                <button
+                  className='button nav__link'
+                  onClick={() => dispatch(action.mFeedbackShow())}
+                >
+                  Feedback
+                </button>
+              </li>
               { !user.isAuth &&
                 <li className='nav__item'>
                   <button

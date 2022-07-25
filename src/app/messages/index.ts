@@ -30,6 +30,9 @@ const messages = {
   },
   file: {
     more10mb: "Your files have more then 10MB"
+  },
+  message: {
+    min: "Enter minimum 10 chars"
   }
 }
 

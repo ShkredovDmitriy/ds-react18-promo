@@ -4,7 +4,7 @@ import { apiMamual, apiChecks } from 'app/api';
 import { schemas, values } from 'app/utils/schemas';
 import { dtoChecks } from 'app/utils/dto';
 
-const WrapperManual = () => {
+export const WrapperManual = () => {
   const dispatch = useDsp();
 
   const apiSuccess = () => {
@@ -35,5 +35,3 @@ const WrapperManual = () => {
     </Formik>
   )
 }
-
-export default WrapperManual;

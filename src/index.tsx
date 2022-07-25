@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from 'app/auth';
-import ModalProvider from 'components/modal';
+import { ModalProvider } from 'components/modal';
 import Header from 'blocks/header/header';
 import Main from 'blocks/main/main';
 import About from 'blocks/about/about';
