@@ -112,4 +112,16 @@ const apiWinners = (apiSuccess: any, apiUnsuccess: any) => {
   })
 }
 
-export { apiRegis, apiLogin, apiLogout, apiMamual, apiAuthCheck, apiChecks, apiFaq, apiWinners, apiPeriods }
+const apiTheme = (apiSuccess: any, apiUnsuccess: any) => {
+  getDocs(collection(db, "feedbackTheme"))
+    .then((docs) => {
+      console.log('API THEME SUCCESS ', docs);
+      apiSuccess(docs);
+    })
+    .catch((error)=> {
+      console.log('API THEME UNSUCCESS ', error);
+     apiUnsuccess()
+    })
+}
+
+export { apiRegis, apiLogin, apiLogout, apiMamual, apiAuthCheck, apiChecks, apiFaq, apiWinners, apiPeriods, apiTheme }

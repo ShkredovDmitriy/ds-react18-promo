@@ -23,7 +23,7 @@ const dtoWinners = (docs: any) => {
   return array;
 }
 
-const dtoPeriods  = (docs: any) => {
+const dtoSelectOption = (docs: any) => {
   const array: any = []
   docs.forEach((doc: any) => {
     const d = doc.data()
@@ -70,4 +70,4 @@ const dtoWinnerPhone = (str: string) => {
   return phone.join('');
 }
 
-export { dtoDate, dtoWinners, dtoPeriods, dtoFaq, dtoChecks, dtoWinnerPhone }
+export { dtoDate, dtoWinners, dtoFaq, dtoChecks, dtoWinnerPhone, dtoSelectOption }

@@ -76,6 +76,9 @@ const time = Yup.string()
 const price = Yup.string()
     .required(messages.required);
 
+const select = Yup.string()
+    .required(messages.required);
+
 const message = Yup.string()
     .min(10, messages.message.min)
     .required(messages.required);
@@ -120,7 +123,7 @@ const schemas = {
   login: shape({ email, password }),
   upload: shape({ file }),
   manual: shape({ fn, date, time, price }),
-  feedback: shape({ name, lastname, email, message }),
+  feedback: shape({ name, lastname, email, theme: select, message }),
   recov: shape({ email }),
   winners: shape({ phone: any })
 }
@@ -154,9 +157,11 @@ const values = {
     name: "",
     lastname: "",
     email: "",
+    theme: "",
     message: ""
   },
   feedback: {
+    theme: "",
     message: ""
   }
 }

@@ -1,5 +1,5 @@
 import { Form } from 'components/form';
-import { InputText } from 'components/input';
+import { InputText, Select } from 'components/input';
 import Button from 'react-bootstrap/Button';
 
 export const FormFeedback = (props: any) =>
@@ -37,6 +37,15 @@ export const FormFeedback = (props: any) =>
         </div>
       </>
     }
+
+    <div className="mb-3">
+      <Select
+        name="theme"
+        label="Theme"
+        placeholder="Select theme"
+        options={props.theme}
+      />
+    </div>
 
     <div className="mb-3">
       <InputText

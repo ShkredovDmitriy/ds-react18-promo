@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { action, useDsp, useSlc, RootState } from 'app/store';
 import { apiWinners, apiPeriods } from 'app/api';
-import { dtoWinners, dtoPeriods, dtoWinnerPhone } from 'app/utils/dto';
+import { dtoWinners, dtoSelectOption, dtoWinnerPhone } from 'app/utils/dto';
 import { schemas } from 'app/utils/schemas';
 import { LoaderMini } from 'components/loader';
 import { Formik, FormWinners } from 'components/form';
@@ -28,7 +28,7 @@ export const WrapperWinners = () => {
   }
 
   const apiPeriodsSuccess = (docs: any) => {
-    setPeriods(dtoPeriods(docs))
+    setPeriods(dtoSelectOption(docs))
   }
 
   const apiPeriodsUnsuccess = () => {}

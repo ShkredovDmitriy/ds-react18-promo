@@ -1,36 +1,36 @@
+import { useEffect, useState } from 'react';
 import { action, useDsp, useSlc, RootState } from 'app/store';
 import { Formik, FormFeedback } from 'components/form';
-import { apiMamual, apiChecks } from 'app/api';
+import { apiTheme } from 'app/api';
 import { schemas, values } from 'app/utils/schemas';
-import { dtoChecks } from 'app/utils/dto';
+import { dtoSelectOption } from 'app/utils/dto';
 
 export const WrapperFeedback = () => {
   const dispatch = useDsp();
+  const [theme, setTheme] = useState([])
 
   const user = useSlc((state: RootState) => state.user)
 
-  // const apiSuccess = () => {
-  //   dispatch(action.mManualHide());
-  //   apiChecks((docs: any)=> {
-  //     dispatch(action.mInfoShow());
-  //     dispatch(action.mInfoSetData({
-  //       title: "Thank you",
-  //       message: "We c"
-  //     }));
-  //     dispatch(action.checksSet(dtoChecks(docs)))
-  //   }, ()=> {
-  //     dispatch(action.checksSet([]))
-  //   })
-  // }
+  const apiThemeSuccess = (docs: any) => {
+    setTheme(dtoSelectOption(docs))
 
-  // const apiUnsuccess = (err: any) => {
-  //   console.log("APIUNSUCCESS DATA", err)
-  // }
+  }
+
+  const apiThemeUnsuccess = (err: any) => {
+    console.log("API UNSUCCESS DATA", err)
+  }
 
   const feedbackValuesSelector = () => {
     if(user.isAuth) return values.feedback
     return values.feedbackGuest
   }
+
+  useEffect(() => {
+    apiTheme(apiThemeSuccess, apiThemeUnsuccess)
+    // apiWinners(apiWinnersSuccess, apiWinnersUnsuccess)
+  }, [])
+
+  console.log('setTheme', theme)
 
   return (
     <Formik
@@ -38,9 +38,12 @@ export const WrapperFeedback = () => {
       validationSchema={schemas.feedback}
       onSubmit={(params, {setErrors}) => {}
       // apiMamual(params, apiSuccess, apiUnsuccess)
-    }
+      }
     >
-      <FormFeedback isAuth={user.isAuth}/>
+      <FormFeedback
+        isAuth={user.isAuth}
+        theme={theme}
+      />
     </Formik>
   )
 }

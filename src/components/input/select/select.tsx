@@ -10,6 +10,7 @@ type props = {
 }
 
 const Select: FC<props> = (props) => {
+  console.log("props", props)
   return (
     <Field name={props.name}>
       {
