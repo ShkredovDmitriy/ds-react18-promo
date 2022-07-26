@@ -37,15 +37,17 @@ export const FormFeedback = (props: any) =>
         </div>
       </>
     }
-
-    <div className="mb-3">
-      <Select
-        name="theme"
-        label="Theme"
-        placeholder="Select theme"
-        options={props.theme}
-      />
-    </div>
+    {
+      props.isAuth &&
+      <div className="mb-3">
+        <Select
+          name="theme"
+          label="Theme"
+          placeholder="Select theme"
+          options={props.theme}
+        />
+      </div>
+    }
 
     <div className="mb-3">
       <InputText

@@ -123,7 +123,8 @@ const schemas = {
   login: shape({ email, password }),
   upload: shape({ file }),
   manual: shape({ fn, date, time, price }),
-  feedback: shape({ name, lastname, email, theme: select, message }),
+  feedbackGuest: shape({ name, lastname, email, message }),
+  feedback: shape({ theme: select, message }),
   recov: shape({ email }),
   winners: shape({ phone: any })
 }
@@ -157,7 +158,6 @@ const values = {
     name: "",
     lastname: "",
     email: "",
-    theme: "",
     message: ""
   },
   feedback: {

@@ -124,4 +124,20 @@ const apiTheme = (apiSuccess: any, apiUnsuccess: any) => {
     })
 }
 
-export { apiRegis, apiLogin, apiLogout, apiMamual, apiAuthCheck, apiChecks, apiFaq, apiWinners, apiPeriods, apiTheme }
+
+const apiFeedback = (params: any, apiSuccess: any, apiUnsuccess: any) => {
+  addDoc(collection(db, "feedbackMessages"), {
+    message: params.message,
+    theme: params.theme
+  })
+  .then((docs) => {
+    console.log('API FEEDBACK SUCCESS ', docs);
+    apiSuccess();
+  })
+  .catch((error)=> {
+    console.log('API FEEDBACK UNSUCCESS ', error);
+    apiUnsuccess();
+  })
+}
+
+export { apiRegis, apiLogin, apiLogout, apiMamual, apiAuthCheck, apiChecks, apiFaq, apiWinners, apiPeriods, apiTheme, apiFeedback }
