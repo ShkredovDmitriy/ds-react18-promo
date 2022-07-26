@@ -1,24 +1,14 @@
-import React, { FC } from 'react';
 import { IMaskInput, maskSelector } from 'app/utils/imask';
 import { Field, ErrorMessage, BSform } from 'components/form';
 
-type props = {
-  as?: string,
-  label?: string,
-  name: string,
-  placeholder: string,
-  role?: string,
-  mask?: string | undefined,
-}
-
-const InputText: FC<props> = (props) => {
+export const InputText = (props: props) => {
   return (
     <Field name={props.name}>
       {
         ({field}: any) => (
           <BSform.Group className="" controlId="formRegisEmail">
-            { props.label &&
-              <BSform.Label>{props.label}</BSform.Label>
+            {
+              props.label && <BSform.Label>{props.label}</BSform.Label>
             }
             {
               !props.mask &&
@@ -29,6 +19,10 @@ const InputText: FC<props> = (props) => {
                 placeholder={props.placeholder}
                 role={props.role}
                 {...field}
+                onInput={(e: any) => {
+                  field.onChange(e)
+                  if(props.onChange) props.onChange(e)
+                }}
               />
             }
             {
@@ -41,6 +35,10 @@ const InputText: FC<props> = (props) => {
                 role={props.role}
                 {...maskSelector(props.mask)}
                 {...field}
+                onInput={(e: any) => {
+                  field.onChange(e)
+                  if(props.onChange) props.onChange(e)
+                }}
               />
             }
             <ErrorMessage name={props.name} component="div">
@@ -53,4 +51,12 @@ const InputText: FC<props> = (props) => {
   )
 }
 
-export default InputText;
+type props = {
+  as?: string,
+  label?: string,
+  name: string,
+  placeholder: string,
+  role?: string,
+  mask?: string | undefined,
+  onChange?: any,
+}

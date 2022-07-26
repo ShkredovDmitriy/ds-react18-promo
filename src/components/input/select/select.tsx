@@ -1,38 +1,26 @@
-import React, { FC } from 'react';
 import { Field, ErrorMessage, BSform } from 'components/form';
 
-type props = {
-  label?: string,
-  name: string,
-  placeholder: string,
-  options: any[],
-  role?: string,
-}
-
-const Select: FC<props> = (props) => {
+export const Select = (props: props) => {
   return (
     <Field name={props.name}>
       {
         ({field}: any) => (
           <BSform.Group className="" controlId="formRegisEmail">
-            { props.label &&
-              <BSform.Label>{props.label}</BSform.Label>
+            {
+              props.label && <BSform.Label>{props.label}</BSform.Label>
             }
             <BSform.Select
               aria-label={props.placeholder}
               {...field}
+              onChange={(e: any) => {
+                field.onChange(e)
+                if(props.onChange) props.onChange(e)
+              }}
             >
               <option value="">{props.placeholder}</option>
               {
-                props.options.map((option: any, i: number) => {
-                  return(
-                    <option
-                      key={i}
-                      value={option.value}
-                    >
-                      {option.title}
-                    </option>
-                  )
+                props.options.map(({value, title}: any, i: number) => {
+                  return <option value={value} key={i}>{title}</option>
                 })
               }
             </BSform.Select>
@@ -46,4 +34,11 @@ const Select: FC<props> = (props) => {
   )
 }
 
-export default Select;
+type props = {
+  label?: string,
+  name: string,
+  placeholder: string,
+  options: any[],
+  role?: string,
+  onChange?: any,
+}

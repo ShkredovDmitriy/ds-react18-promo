@@ -1,3 +1,3 @@
-export { default as InputText } from './inputText/inputText';
-export { default as InputFile } from './inputFile/inputFile';
-export { default as Select } from './select/select';
+export { InputText } from './inputText/inputText';
+export { InputFile } from './inputFile/inputFile';
+export { Select } from './select/select';

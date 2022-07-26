@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { action, useDsp, useSlc, RootState } from 'app/store';
 import { apiWinners, apiPeriods } from 'app/api';
 import { dtoWinners, dtoSelectOption, dtoWinnerPhone } from 'app/utils/dto';
-import { schemas } from 'app/utils/schemas';
 import { LoaderMini } from 'components/loader';
 import { Formik, FormWinners } from 'components/form';
 import Scrollbar from 'components/scrollbar';
@@ -52,13 +51,13 @@ export const WrapperWinners = () => {
         <>
           <Formik
             initialValues={{phone: "", week: ""}}
-            validationSchema={schemas.winners}
-            onSubmit={(params) => {
-              setPhone(params.phone)
-              setWeek(params.week)
-            }}
+            onSubmit={() => {}}
           >
-            <FormWinners periods={periods}/>
+            <FormWinners
+              periods={periods}
+              onSelectChange={(e: any) => setWeek(e.target.value)}
+              onInputChange={(e: any) => setPhone(e.target.value)}
+            />
           </Formik>
           <Scrollbar>
             <TableWinners data={winnersFilter(winners)}/>

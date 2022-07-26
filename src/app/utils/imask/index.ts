@@ -2,7 +2,7 @@ import { IMaskInput } from 'react-imask';
 import IMask from 'imask';
 
 const maskPhone: any = {
-  mask: '+{1}(000)000-00-00'
+  mask: '+{1}(000)000-00-00',
 };
 
 const maskPrice: any = {
