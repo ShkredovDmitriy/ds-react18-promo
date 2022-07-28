@@ -15,7 +15,7 @@ export const InputText = (props: props) => {
               <BSform.Control
                 as={props.as}
                 name={props.name}
-                type="text"
+                type={props.type || "text"}
                 placeholder={props.placeholder}
                 role={props.role}
                 {...field}
@@ -55,6 +55,7 @@ type props = {
   as?: string,
   label?: string,
   name: string,
+  type?: string,
   placeholder: string,
   role?: string,
   mask?: string | undefined,

@@ -43,9 +43,13 @@ const phone = Yup.string()
     .required(messages.required);
 
 const password = Yup.string()
-    .min(8, messages.passwToShort)
-    .max(50, messages.toLong50)
+    .min(8, messages.password.short)
+    .max(50, messages.password.long)
     .required(messages.requiredPassword);
+
+const passwordEmpty = Yup.string()
+    .min(8, messages.password.short)
+    .max(50, messages.password.long)
 
 const name = Yup.string()
     .matches(/^[a-zA-Z]+$/, messages.useRussLetters)
@@ -126,7 +130,8 @@ const schemas = {
   feedbackGuest: shape({ name, lastname, email, message }),
   feedback: shape({ theme: select, message }),
   recov: shape({ email }),
-  winners: shape({ phone: any })
+  winners: shape({ phone: any }),
+  user: shape({ name, lastname, oldPassword: passwordEmpty, newPassword: passwordEmpty })
 }
 
 // VALUES

@@ -8,6 +8,7 @@ export { default as WrapperFaq } from './wrapperFaq';
 export { default as ChecksWrapper } from './wrapperChecks';
 export { WrapperWinners } from './wrapperWinners';
 export { WrapperFeedback } from './wrapperFeedback';
+export { WrapperUser } from './wrapperUser';
 
 
 

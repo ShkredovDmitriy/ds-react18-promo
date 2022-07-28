@@ -7,7 +7,7 @@ import {
   signOut,
   onAuthStateChanged
 } from 'firebase/auth';
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
 
 const apiRegis = (params: any, success: any, unsuccess: any) => {
   createUserWithEmailAndPassword(auth, params.email, params.password)
@@ -36,6 +36,21 @@ const apiLogin = (params: any, success: any, unsuccess: any) => {
 const apiLogout = (success: any) => {
   signOut(auth).then(() => {
     success();
+  })
+}
+
+const apiUserSet = (params: any, apiSuccess: any, apiUnsuccess: any) => {
+  setDoc(doc(db, "user", "S8R6KUzlgiCNwUGVLf8m"), {
+    name: params.name,
+    lastname: params.lastname
+  })
+  .then((docs) => {
+    console.log('API USER SUCCESS ', docs);
+    apiSuccess();
+  })
+  .catch((error)=> {
+    console.log('API USER UNSUCCESS ', error);
+    apiUnsuccess();
   })
 }
 
@@ -140,4 +155,4 @@ const apiFeedback = (params: any, apiSuccess: any, apiUnsuccess: any) => {
   })
 }
 
-export { apiRegis, apiLogin, apiLogout, apiMamual, apiAuthCheck, apiChecks, apiFaq, apiWinners, apiPeriods, apiTheme, apiFeedback }
+export { apiRegis, apiLogin, apiLogout, apiUserSet, apiMamual, apiAuthCheck, apiChecks, apiFaq, apiWinners, apiPeriods, apiTheme, apiFeedback }

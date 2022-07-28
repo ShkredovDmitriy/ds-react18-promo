@@ -4,7 +4,7 @@ import ModalRecov from './modalRecov/modalRecov';
 import ModalVariant from './modalVariant/modalVariant';
 import ModalUpload from './modalUpload/ModalUpload';
 import ModalManual from './modalManual/modalManual';
-import ModalUser from './modalUser/modalUser';
+import { ModalUser } from './modalUser/modalUser';
 import ModalInfo from './modalInfo/modalInfo';
 import ModalScaner from './modalScaner/modalScaner';
 import ModalFeedback from './modalFeedback/modalFeedback';

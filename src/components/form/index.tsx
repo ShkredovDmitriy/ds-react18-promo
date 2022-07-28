@@ -7,7 +7,7 @@ import FormRecov from './formRecov/formRecov';
 import FormVariant from './formVariant/formVariant';
 import FormUpload from './formUpload/formUpload';
 import FormManual from './formManual/formManual';
-import FormUser from './formUser/formUser';
+import { FormUser } from './formUser/formUser';
 import { FormWinners } from './formWinners/formWinners';
 import { FormFeedback } from './formFeedback/formFeedback';
 

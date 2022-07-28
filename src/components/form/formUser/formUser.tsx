@@ -1,41 +1,29 @@
-import React, { FC } from 'react';
+import { Form } from 'components/form';
+import { InputText } from 'components/input';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 
-type props = {}
+export const FormUser = () =>
 
-const FormUser: FC<props> = (props) => {
+  <Form className='form w-100 mt-3'>
 
-  return (
-    <Form className='form w-100 mt-3'>
-      <Form.Group className="mb-3" controlId="formUserName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter name" />
-      </Form.Group>
+    <div className="mb-3">
+      <InputText
+        label='Name'
+        name='name'
+        placeholder='Enter your name'
+        role='formUserName'
+      />
+    </div>
 
-      <Form.Group className="mb-3" controlId="formUserLastname">
-        <Form.Label>Lastname</Form.Label>
-        <Form.Control type="text" placeholder="Enter lastname" />
-      </Form.Group>
+    <div className="mb-3">
+      <InputText
+        label='Lastname'
+        name='lastname'
+        placeholder='Enter your lastname'
+        role='formUserLastname'
+      />
+    </div>
 
-      <Form.Group className="mb-3" controlId="formUserEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-      </Form.Group>
+    <Button variant="primary mt-3 w-100" type="submit">Submit</Button>
 
-      <Form.Group className="mb-3" controlId="formUserPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter old password" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formUserPasswordNew">
-        <Form.Label>New password</Form.Label>
-        <Form.Control type="password" placeholder="Enter new password" />
-      </Form.Group>
-
-      <Button variant="primary mt-3 w-100" type="submit">Submit</Button>
-    </Form>
-  )
-}
-
-export default FormUser;
+  </Form>

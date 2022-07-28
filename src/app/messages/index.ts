@@ -13,7 +13,6 @@ const messages = {
   toLong50: "Maximum 50 characters",
   useRussLetters: "Use letters aA - zZ",
   emailInvalid: "Use format user@mail.com",
-  passwToShort: "Minimum 8 letters or digits ",
 
   email: {
     exist: "Email exists",
@@ -33,6 +32,10 @@ const messages = {
   },
   message: {
     min: "Enter minimum 10 chars"
+  },
+  password: {
+    short: "Minimum 8 characters",
+    long: "Maximum 50 characters",
   }
 }
 
